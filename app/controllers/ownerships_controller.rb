@@ -12,8 +12,8 @@ class OwnershipsController < ApplicationController
     if @item.new_record?
       begin
         # TODO 商品情報の取得 Amazon::Ecs.item_lookupを用いてください
-        response = Amazon::Ecs.item_search(params[:asin] ,
-                                  :search_index => 'All' ,
+        response = Amazon::Ecs.item_lookup(params[:asin] ,
+                                  :condition => 'All' ,
                                   :response_group => 'Medium' ,
                                   :country => 'jp')
         
@@ -56,6 +56,8 @@ class OwnershipsController < ApplicationController
     elsif @item.class == "Want"
     current_user.unwant(@item)
     end
+
+
     
 
 
