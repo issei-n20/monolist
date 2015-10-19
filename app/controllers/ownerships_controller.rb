@@ -13,7 +13,6 @@ class OwnershipsController < ApplicationController
       begin
         # TODO 商品情報の取得 Amazon::Ecs.item_lookupを用いてください
         response = Amazon::Ecs.item_lookup(params[:asin] ,
-                                  :condition => 'All' ,
                                   :response_group => 'Medium' ,
                                   :country => 'jp')
         
@@ -51,15 +50,12 @@ class OwnershipsController < ApplicationController
     # params[:type]の値ににHavedボタンが押された時には「Have」,
     # Wantedボタンがされた時には「Want」が設定されています。
     
-    if @item.type == "Have"
+    if params[:type] == "Have"
     current_user.unhave(@item)
-    elsif @item.type == "Want"
+    elsif params[:type] == "Want"
     current_user.unwant(@item)
     end
-
-
     
-
-
+    
   end
 end
