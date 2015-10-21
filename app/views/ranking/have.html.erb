@@ -1,3 +1,22 @@
-<% @have_ranking_item.each do |h| %>
-<%= h('title') %>
-<% end %>
+<div  class="container">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>持っているものランキング</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @have_ranking_item.each do |i| %>
+      <tr>
+        <td><%= @have_item.find(i).title %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+    
+
+
+

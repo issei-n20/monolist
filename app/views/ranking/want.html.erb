@@ -1,2 +1,23 @@
-<h1>Ranking#want</h1>
-<p>Find me in app/views/ranking/want.html.erb</p>
+<div  class="container">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>欲しいものランキング</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @want_ranking_item.each do |w| %>
+      <tr>
+        <td><%= @want_item.find(w).title %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+    
+
+
+
+
